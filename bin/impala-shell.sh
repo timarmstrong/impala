@@ -32,13 +32,13 @@ PYTHONPATH=${PYTHONPATH}:${SHELL_HOME}/gen-py
 THRIFT_PY_ROOT="${IMPALA_TOOLCHAIN_PACKAGES_HOME}/thrift-${IMPALA_THRIFT_PY_VERSION}"
 
 export LD_LIBRARY_PATH=":$(PYTHONPATH=${PYTHONPATH} \
-  python "$IMPALA_HOME/infra/python/bootstrap_virtualenv.py" \
+  python2 "$IMPALA_HOME/infra/python/bootstrap_virtualenv.py" \
   --print-ld-library-path)"
 
 IMPALA_PY_DIR="$(dirname "$0")/../infra/python"
 IMPALA_PY_ENV_DIR="${IMPALA_PY_DIR}/env-gcc${IMPALA_GCC_VERSION}"
 # Allow overriding the python executable
-IMPALA_PYTHON_EXECUTABLE="${IMPALA_PYTHON_EXECUTABLE:-${IMPALA_PY_ENV_DIR}/bin/python}"
+IMPALA_PYTHON_EXECUTABLE="${IMPALA_PYTHON_EXECUTABLE:-${IMPALA_PY_ENV_DIR}/bin/python2}"
 
 for PYTHON_LIB_DIR in ${THRIFT_PY_ROOT}/python/lib{64,}; do
   [[ -d ${PYTHON_LIB_DIR} ]] || continue
