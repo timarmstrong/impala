@@ -48,7 +48,7 @@ for PYTHON_LIB_DIR in ${THRIFT_PY_ROOT}/python/lib{64,}; do
 done
 
 # Note that this uses the external system python executable
-PYTHONPATH=${PYTHONPATH} python "${IMPALA_PY_DIR}/bootstrap_virtualenv.py"
+PYTHONPATH=${PYTHONPATH} python2 "${IMPALA_PY_DIR}/bootstrap_virtualenv.py"
 
 # Enable remote debugging if port was specified via environment variable
 if [[ ${IMPALA_SHELL_DEBUG_PORT:-0} -ne 0 ]]; then
