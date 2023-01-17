@@ -38,7 +38,7 @@ def detect_python_cmd():
         continue
       exit = subprocess.call([cmd_path, "-c", textwrap.dedent("""
           import sys
-          sys.exit(int(sys.version_info[:2] < (2, 6)))""")])
+          sys.exit(int(sys.version_info[:2] < (2, 6) or sys.version_info[0] > 2))""")])
       if exit == 0:
         return cmd_path
   raise Exception("Could not find minimum required python version 2.6")
